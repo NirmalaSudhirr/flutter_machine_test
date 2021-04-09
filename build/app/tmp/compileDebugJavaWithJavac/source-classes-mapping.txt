@@ -1,0 +1,4 @@
+io/flutter/plugins/GeneratedPluginRegistrant.java
+ io.flutter.plugins.GeneratedPluginRegistrant
+com/redo2oo/flutter_login_bloc/BuildConfig.java
+ com.redo2oo.flutter_login_bloc.BuildConfig
