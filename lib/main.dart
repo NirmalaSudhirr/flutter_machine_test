@@ -14,6 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: HomePage(),
+
       theme: ThemeData(
         primarySwatch: Colors.teal,
       ),
@@ -22,7 +23,12 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
   changeThePage(BuildContext context) {
     Navigator.of(context)
         .push(MaterialPageRoute(builder: (context) => HomeScreen()));
@@ -34,7 +40,7 @@ class HomePage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("Bloc Pattern"),
+        title: Text("Login Bloc Pattern"),
       ),
       body: SingleChildScrollView(
         child: Container(

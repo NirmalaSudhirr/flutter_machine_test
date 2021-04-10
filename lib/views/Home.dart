@@ -63,7 +63,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-
+        title: Text("Users ListView"),
       ),
       body: getAllProductsContainer()
     );
@@ -78,11 +78,11 @@ class _HomeScreenState extends State<HomeScreen> {
           Radius.circular(30),
         ),
       ),
-      child: Column(
-        children: [
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
 
-          SingleChildScrollView(
-            child: Container(
+            Container(
                 height: MediaQuery.of(context).size.height - 150,
                 // constraints: BoxConstraints(minHeight: 3.6 * SizeConfig.widthMultiplier, maxHeight: 7.1 * SizeConfig.widthMultiplier),
 
@@ -94,8 +94,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     itemBuilder: (_, index) {
                       return  getAllProductsCard(products[index]);
                     })),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
@@ -110,75 +110,86 @@ class _HomeScreenState extends State<HomeScreen> {
     print("USER,$email");
 
 
-    return Container(
-      //  height: 160,
+    return SingleChildScrollView(
+      child: Container(
+        //  height: 160,
 
-      child: Card(
-        elevation: 1.5,
-        child: Padding(
-          padding: const EdgeInsets.all(10.0),
-          child: ListTile(
-            title: Row(children: <Widget>[
+        child: Card(
+          elevation: 1.5,
+          child: Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: ListTile(
+              title: Row(children: <Widget>[
 
-              SizedBox(
-                width: 20,
-              ),
-              Flexible(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Stack(
-                      children: [
-                        SizedBox(
-                            width: MediaQuery.of(context).size.width - 120,
-                            child: Text(
-                              email,
-                              style: TextStyle(
-                                fontSize: 10,
-                                //  fontSize: 17
-                              ),
-                            )),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Stack(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(0, 8, 8, 8),
-                          child: RichText(
-                            text: TextSpan(children: [
-                              TextSpan(
-                                  text: "First Name: ",
-                                  style: TextStyle(
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.w300)),
-                              TextSpan(
-                                  text: "$first_name\n",
-                                  style: TextStyle(
-                                    fontSize: 10,
-                                  )),
-                              TextSpan(
-                                  text: "Last Name: ",
-                                  style: TextStyle(
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.w300)),
-                              TextSpan(
-                                  text:
-                                  "$last_name \n",
-                                  style: TextStyle(
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.w300)),
-                            ], style: TextStyle(color: Colors.grey)),
-                          ),
-                        ),
-                      ],
-                    )
-                  ],
+                SizedBox(
+                  width: 20,
                 ),
-              ),
-            ]),
+
+                Container(
+
+
+                    child: Image.network(image)
+                ),
+                SizedBox(
+                  width: 20,
+                ),
+                Flexible(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Stack(
+                        children: [
+                          SizedBox(
+                              width: MediaQuery.of(context).size.width - 120,
+                              child: Text(
+                                email,
+                                style: TextStyle(
+                                  fontSize: 15,
+                                  //  fontSize: 17
+                                ),
+                              )),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Stack(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(0, 8, 8, 8),
+                            child: RichText(
+                              text: TextSpan(children: [
+                                TextSpan(
+                                    text: "First Name: ",
+                                    style: TextStyle(
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.w500)),
+                                TextSpan(
+                                    text: "$first_name\n",
+                                    style: TextStyle(
+                                      fontSize: 15,
+                                    )),
+                                TextSpan(
+                                    text: "Last Name: ",
+                                    style: TextStyle(
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.w500)),
+                                TextSpan(
+                                    text:
+                                    "$last_name \n",
+                                    style: TextStyle(
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.w300)),
+                              ], style: TextStyle(color: Colors.grey)),
+                            ),
+                          ),
+                        ],
+                      )
+                    ],
+                  ),
+                ),
+              ]),
+            ),
           ),
         ),
       ),
